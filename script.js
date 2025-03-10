@@ -1,8 +1,22 @@
-function stringChop(str, size) {
-  // your code here
+function chunkString(str, chunkLength) {
+  // Check if the input string is null or undefined, return empty array
+  if (str === null || str === undefined) {
+    return [];
+  }
+
+  // Initialize an empty array to hold the chunks
+  let result = [];
+
+  // Loop through the string and slice it into chunks of the given length
+  for (let i = 0; i < str.length; i += chunkLength) {
+    result.push(str.slice(i, i + chunkLength));
+  }
+
+  return result;
 }
 
-// Do not change the code below
-const str = prompt("Enter String.");
-const size = prompt("Enter Chunk Size.");
-alert(stringChop(str, size));
+// Examples
+console.log(chunkString("Hello, world!", 5)); // ["Hello", ", wor", "ld!"]
+console.log(chunkString("12345", 2));         // ["12", "34", "5"]
+console.log(chunkString("abc", 5));           // ["abc"]
+
